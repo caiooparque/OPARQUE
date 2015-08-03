@@ -1,0 +1,88 @@
+__nodes:
+    base: &base
+        nome:
+            type: text
+            class: large
+            group: Conteúdo
+        slug:
+            type: slug
+            uses: nome
+
+    destaque: &destaque
+        destacar:
+            label: Destacar conteúdo
+            type: checkbox
+            default: false
+
+    agenda: &agenda
+        mostrar:
+            label: Mostrar na agenda
+            type: checkbox
+            default: false
+            group: Agenda
+        inicio:
+            label: Início
+            type: datetime
+        final:
+            type: datetime
+
+    taxonomia: &taxonomia
+        categoria:
+            type: select
+            values: categorias/nome
+            autocomplete: true
+        tags:
+            type: text
+
+projetos:
+    name: Projetos
+    singular_name: Projeto
+    fields:
+        <<: *base
+        imagem:
+            type: image
+        texto:
+            type: html
+            height: 350px
+
+eventos:
+    name: Eventos
+    singular_name: Evento
+    fields:
+        <<: *base
+        imagem:
+            label: Imagem para exibição na agenda
+            type: image
+        texto:
+            type: html
+            height: 350px
+        projeto:
+            type: select
+            values: projetos/nome
+            autocomplete: true
+        <<: *destaque
+        <<: *agenda
+
+categorias:
+    name: Categoria
+    singular_name: Categoria
+    fields:
+        <<: *base
+        resumo:
+            type: textarea
+            height: 250px
+
+noticias:
+    name: Notícias
+    singular_name: Notícia
+    fields:
+        <<: *base
+        imagem:
+            label: Imagem para exibição no blog e na agenda
+            type: image
+        texto:
+            type: html
+            height: 350px
+        <<: *destaque
+        <<: *taxonomia
+        <<: *agenda

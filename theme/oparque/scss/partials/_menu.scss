@@ -1,0 +1,30 @@
+@import "normalize.scss";
+
+nav {
+    .logo {
+        display: block;
+        text-align: center;
+
+        img {
+            max-width: 32rem;
+            padding: 2rem;
+            width: 100%;
+        }
+    }
+
+    ul {
+        font-weight: 700;
+        margin: 0 1rem;
+        padding: 0;
+        text-transform: uppercase;
+
+        a {
+            text-decoration: none;
+        }
+    }
+
+    li {
+        display: inline-block;
+        padding: 1rem;
+    }
+}
