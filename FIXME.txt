@@ -1,0 +1,2 @@
+﻿- Vh não funciona corretamente no iOS7
+- IE8

@@ -1,30 +1,130 @@
-@import "normalize.scss";
+@import "common.scss";
+
+$logo-width: 32rem;
+$half-logo-width: $logo-width / 2;
+
+$logo-height: 10 / 32 * $logo-width;
+$half-logo-height: $logo-height / 2;
+
+$nav-font-size: 1.8rem;
+
+$open-menu-width: 4rem;
+$open-menu-height: 30 / 50 * $open-menu-width;
+
+$menu-height: $logo-height + $open-menu-height + 4rem;
 
 nav {
-    .logo {
+    font-weight: 700;
+    text-transform: uppercase;
+    color: $main-gray;
+    font-size: $nav-font-size;
+    border: 2rem solid white;
+
+    a {
         display: block;
+        text-decoration: none;
+        margin: 1rem 0;
+        color: $main-gray;
+
+        &:visited {
+            color: $main-gray;
+        }
+    }
+
+    .logo {
+        background-color: white;
+        position: relative;
+        z-index: -1;
         text-align: center;
+        width: 100%;
 
         img {
-            max-width: 32rem;
-            padding: 2rem;
             width: 100%;
+            max-width: $logo-width;
+            height: $logo-height;
         }
-    }
-
-    ul {
-        font-weight: 700;
-        margin: 0 1rem;
-        padding: 0;
-        text-transform: uppercase;
 
         a {
-            text-decoration: none;
+            display: inline-block;
         }
     }
 
-    li {
-        display: inline-block;
-        padding: 1rem;
+    .open-menu {
+        display: block;
+
+        button {
+            margin-right: 1rem;
+            border: none;
+            background-color: transparent;
+            background-size: contain;
+
+            &:focus {
+                outline: 0;
+            }
+        }
+    }
+
+    .button-closed {
+        background-image: url(../images/down-arrow.svg);
+        width: $open-menu-width;
+        height: $open-menu-height;
+    }
+
+    .button-open {
+        background-image: url(../images/right-arrow.svg);
+        width: $open-menu-height;
+        height: $open-menu-width;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    @media (min-width: 60rem /* 960px*/ ) {
+        text-align: center;
+
+        .open-menu {
+            display: none;
+        }
+
+        .menu, .menu div {
+            display: inline-block;
+        }
+
+        .menu {
+            margin: 1.5rem 0;
+
+            a {
+                display: inline-block;
+                margin: 0 2rem;
+            }
+        }
+    }
+
+    @media (min-width: 80rem /* 1280px*/ ) {
+        .first-column, .second-column {
+            position: absolute;
+            top: $half-logo-height + 2.5rem;
+            width: calc(50% - #{$half-logo-width} - 3rem);
+        }
+
+        .first-column {
+            left: 2rem;
+        }
+
+        .second-column {
+            right: 2rem;
+        }
+
+        .menu a {
+            margin: 0 1.8rem;
+        }
+    }
+
+    @media (min-width: 100rem /* 1600px*/ ) {
+        .menu a {
+            font-size: 2rem;
+            margin: 0 3rem;
+        }
     }
 }

@@ -1,0 +1,21 @@
+$oparque-black: rgb(0, 0, 0);
+$oparque-white: rgb(255, 255, 255);
+$oparque-gray: rgb(76, 76, 78);
+$oparque-blue: rgb(58, 85, 155);
+$oparque-cyan: rgb(20, 176, 230);
+$oparque-green: rgb(0, 166, 142);
+$oparque-yellow: rgb(254, 194, 33);
+$oparque-orange: rgb(239, 64, 40);
+$oparque-purple: rgb(181, 81, 146);
+
+$main-gray: $oparque-gray;
+
+$skewDegrees: 5deg;
+
+@mixin skew($direction) {
+    -moz-transform: skewY($direction * $skewDegrees);
+    -ms-transform: skewY($direction * $skewDegrees);
+    -o-transform: skewY($direction * $skewDegrees);
+    -webkit-transform: skewY($direction * $skewDegrees);
+    transform: skewY($direction * $skewDegrees);
+}

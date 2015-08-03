@@ -14,24 +14,32 @@
     <link rel="stylesheet" href="{{ paths.theme }}css/main.min.css">
 </head>
 <body>
-<header class="menu">
-    <nav>
-        <div class="logo">
-            <a href="/">
-                <img src="{{ paths.theme }}images/logo.svg" alt="Logo d'OPARQUE" />
-            </a>
-        </div>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">
+                    <img src="{{ paths.theme }}images/logo.svg" alt="Logo d'OPARQUE" />
+                </a>
+            </div>
 
-        <ul>
-            <li><a href="/sobre">Sobre</a></li>
-            <li><a href="/projetos">Projetos</a></li>
-            <li><a href="/projetos">Notícias</a></li>
-            <li><a href="/localizacao">Eventos</a></li>
-            <li><a href="/agenda">Localização</a></li>
-            <li><a href="/contato">Contato</a></li>
-        </ul>
-    </nav>
-</header>
+            <div class="open-menu">
+                <button class="button-closed" onclick="toggleMenu(); return false;"></button>
+            </div>
 
-<main>
-    
+            <div class="menu">
+                <div class="first-column">
+                    <a href="/">Sobre</a>
+                    <a href="/projetos/">Projetos</a>
+                    <a href="/">Onde estamos</a>
+                </div>
+
+                <div class="second-column">
+                    <a href="/">Tá rolando</a>
+                    <a href="/">Agenda</a>
+                    <a href="/">Contatos</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>

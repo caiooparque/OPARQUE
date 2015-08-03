@@ -67,3 +67,8 @@ app/config/*_local.yml
 # Ignora arquivos de banco de dados
 app/database/*
 !app/database/index.html
+
+# Ignora arquivos servidos estaticamente
+files/*
+!files/index.html
+!files/.htaccess
