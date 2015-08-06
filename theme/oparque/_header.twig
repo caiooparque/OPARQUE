@@ -15,18 +15,23 @@
 </head>
 <body>
     <header>
+        <div class="logo">
+            <a href="/">
+                <img src="{{ paths.theme }}images/logo.svg" alt="Logo d'OPARQUE" />
+            </a>
+        </div>
+
+        <div class="menu-button">
+            <button class="button-open" onclick="toggleMenu(); return false;"></button>
+        </div>
+
+        <div class="social">
+            <a href="https://instagram.com/oparque/" target="_blank"><img src="{{ paths.theme }}images/instagram.svg" alt="" /></a>
+            <a href="https://www.facebook.com/grupocriativo.oparque" target="_blank"><img src="{{ paths.theme }}images/facebook.svg" alt="" /></a>
+            <a href="https://vimeo.com/oparque" target="_blank"><img src="{{ paths.theme }}images/vimeo.svg" alt="" /></a>
+        </div>
+
         <nav>
-            <div class="logo">
-                <a href="/">
-                    <img src="{{ paths.theme }}images/logo.svg" alt="Logo d'OPARQUE" />
-                </a>
-            </div>
-
-            <div class="open-menu">
-                <button class="button-closed" onclick="toggleMenu(); return false;"></button>
-            </div>
-
-            <div class="menu">
                 <div class="first-column">
                     <a href="/">Sobre</a>
                     <a href="/projetos/">Projetos</a>
@@ -38,7 +43,6 @@
                     <a href="/">Agenda</a>
                     <a href="/">Contatos</a>
                 </div>
-            </div>
         </nav>
     </header>
 

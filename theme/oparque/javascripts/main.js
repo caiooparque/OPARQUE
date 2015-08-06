@@ -1,14 +1,14 @@
 function toggleMenu() {
-    var menuSelector = $("nav .menu");
-    var buttonSelector = $("nav .open-menu button");
+    var menuSelector = $("nav");
+    var buttonSelector = $("header .menu-button");
 
     if (menuSelector.css("display") === "none") {
         menuSelector.css("display", "inline-block");
-        buttonSelector.removeClass("button-closed");
+        buttonSelector.removeClass("button-clos");
         buttonSelector.addClass("button-open");
     } else {
         menuSelector.css("display", "");
         buttonSelector.removeClass("button-open");
-        buttonSelector.addClass("button-closed");
+        buttonSelector.addClass("button-close");
     }
 }
