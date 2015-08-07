@@ -1,14 +1,26 @@
 function toggleMenu() {
     var menuSelector = $("nav");
-    var buttonSelector = $("header .menu-button");
+    var columnsSelector = $("nav .columns");
 
-    if (menuSelector.css("display") === "none") {
-        menuSelector.css("display", "inline-block");
-        buttonSelector.removeClass("button-clos");
-        buttonSelector.addClass("button-open");
+    var buttonSelector = $("header .menu-button button");
+
+    var openButtonClass = "button-open";
+    var closeButtonClass = "button-close";
+
+    if (menuSelector.css("display") === "none" || columnsSelector.css("display") === "none") {
+        /* Abrindo*/
+        menuSelector.css("display", "block");
+        columnsSelector.css("display", "block");
+
+        buttonSelector.removeClass(openButtonClass);
+        buttonSelector.addClass(closeButtonClass);
+
     } else {
+        /* Fechando*/
         menuSelector.css("display", "");
-        buttonSelector.removeClass("button-open");
-        buttonSelector.addClass("button-close");
+        columnsSelector.css("display", "");
+
+        buttonSelector.removeClass(closeButtonClass);
+        buttonSelector.addClass(openButtonClass);
     }
 }

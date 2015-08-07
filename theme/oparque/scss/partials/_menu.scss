@@ -1,6 +1,8 @@
 @import "common";
 
 header {
+    min-height: 10rem;
+    position: relative;
     font-size: 0;
     background-color: white;
     padding: 1rem;
@@ -19,15 +21,17 @@ header {
 
         img {
             width: 100%;
-            max-width: 32rem;
+            max-width: 30rem;
             height: auto;
         }
     }
 
     .menu-button {
+        $menu-button-size: 3.5rem;
+
         display: inline-block;
-        width: 4rem;
-        height: 4rem;
+        width: $menu-button-size;
+        height: $menu-button-size;
 
         button {
             border: none;
@@ -56,31 +60,177 @@ header {
 
     .social {
         display: inline-block;
-        width: calc(100% - 4rem);
+        position: absolute;
+        right: 1.5rem;
+        top: 12rem;
         text-align: right;
 
         a {
             display: inline-block;
-            width: 4rem;
+            width: 3.5rem;
             height: auto;
             margin-left: 1rem;
         }
     }
+}
+
+nav {
+    display: none;
+    font-size: 2rem;
+    font-weight: bold;
+    color: $oparque-black;
+    width: 100%;
+
+    a {
+        display: block;
+        text-decoration: none;
+        text-transform: uppercase;
+        margin-top: .6rem;
+        color: $oparque-black;
+
+        &:visited {
+            color: $oparque-black;
+        }
+    }
+}
+
+.busca {
+    $busca-height: 4rem;
+    $fields-height: $busca-height - 2rem;
+
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: $busca-height;
+    border: .4rem solid $oparque-black;
+    border-radius: 1rem;
+    padding: .2rem 1rem;
+    margin: 2rem 0 0 0;
+    font-weight: normal;
+    font-size: 1.8rem;
+
+    input {
+        position: absolute;
+        top: 50%;
+        margin-top: -$fields-height / 2;
+        display: inline-block;
+        border: 0;
+        padding: 0;
+        height: $fields-height;
+
+        &:focus {
+            outline: 0;
+        }
+    }
+
+    input[type="text"] {
+        width: 90%;
+    }
+
+    input[type="submit"] {
+        right: .5rem;
+        width: $fields-height;
+        background-color: inherit;
+        background-image: url(../images/busca.svg);
+        background-position: center;
+        background-size: cover;
+    }
+}
+
+
+@media (min-width: 25rem /*400px*/ ) {
+    .first-column, .second-column {
+        margin-top: 1rem;
+        display: inline-block;
+        width: 48%;
+        text-align: center;
+    }
+}
+
+@media (min-width: 38rem /*608px*/ ) {
+    .first-column, .second-column {
+        margin-top: 1rem;
+        display: block;
+        width: 100%;
+    }
 
     nav {
-        display: none;
+        .first-column, .second-column {
+            margin: 0;
+        }
 
         a {
-            font-size: 1.8rem;
-            display: block;
-            text-decoration: none;
-            text-transform: uppercase;
-            color: $oparque-black;
-            margin-top: .6rem;
+            display: inline-block;
+            width: 32%;
+        }
+    }
+}
 
-            &:visited {
-                color: $oparque-black;
-            }
+@media (min-width: 45rem /*720px*/ ) {
+    nav {
+        display: block;
+
+        .columns {
+            display: none;
+            margin-top: 2rem;
+        }
+    }
+
+    .busca {
+        position: absolute;
+        right: 1rem;
+        top: 9.7rem;
+        width: 26rem;
+    }
+
+    header {
+        .social {
+            margin-right: 27rem;
+        }
+    }
+}
+
+@media (min-width: 60rem /*960px*/ ) {
+    header {
+        .menu-button {
+            display: none;
+        }
+    }
+
+    nav {
+        margin-bottom: 5.2rem;
+    }
+
+    nav, nav .columns {
+        display: block;
+    }
+
+    .first-column, .second-column {
+        position: absolute;
+        width: calc(50% - 15rem);
+        top: 1rem;
+
+        a {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    .first-column {
+        left: 0;
+    }
+
+    .second-column {
+        right: 0;
+    }
+}
+
+@media (min-width: 78rem /*1248px*/) {
+    .first-column, .second-column {
+        a {
+            display: inline-block;
+            width: auto;
+            margin: 3rem 2%;
         }
     }
 }

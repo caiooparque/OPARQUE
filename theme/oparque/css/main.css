@@ -53,7 +53,7 @@ html {
  */
 body {
   margin: 0;
-  background-color: red;
+  background-color: white;
   font-size: 1.6em; }
 
 /* HTML5 display definitions
@@ -407,6 +407,8 @@ html {
   box-sizing: inherit; }
 
 header {
+  min-height: 10rem;
+  position: relative;
   font-size: 0;
   background-color: white;
   padding: 1rem; }
@@ -419,12 +421,12 @@ header {
     margin-bottom: 1rem; }
   header .logo img {
     width: 100%;
-    max-width: 32rem;
+    max-width: 30rem;
     height: auto; }
   header .menu-button {
     display: inline-block;
-    width: 4rem;
-    height: 4rem; }
+    width: 3.5rem;
+    height: 3.5rem; }
     header .menu-button button {
       border: none;
       background-color: transparent;
@@ -441,21 +443,161 @@ header {
       background-image: url(../images/close.svg); }
   header .social {
     display: inline-block;
-    width: calc(100% - 4rem);
+    position: absolute;
+    right: 1.5rem;
+    top: 12rem;
     text-align: right; }
     header .social a {
       display: inline-block;
-      width: 4rem;
+      width: 3.5rem;
       height: auto;
       margin-left: 1rem; }
-  header nav {
+
+nav {
+  display: none;
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  width: 100%; }
+  nav a {
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-top: .6rem;
+    color: black; }
+    nav a:visited {
+      color: black; }
+
+.busca {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 4rem;
+  border: 0.4rem solid black;
+  border-radius: 1rem;
+  padding: 0.2rem 1rem;
+  margin: 2rem 0 0 0;
+  font-weight: normal;
+  font-size: 1.8rem; }
+  .busca input {
+    position: absolute;
+    top: 50%;
+    margin-top: -1rem;
+    display: inline-block;
+    border: 0;
+    padding: 0;
+    height: 2rem; }
+    .busca input:focus {
+      outline: 0; }
+  .busca input[type="text"] {
+    width: 90%; }
+  .busca input[type="submit"] {
+    right: .5rem;
+    width: 2rem;
+    background-color: inherit;
+    background-image: url(../images/busca.svg);
+    background-position: center;
+    background-size: cover; }
+
+@media (min-width: 25rem) {
+  .first-column, .second-column {
+    margin-top: 1rem;
+    display: inline-block;
+    width: 48%;
+    text-align: center; } }
+
+@media (min-width: 38rem) {
+  .first-column, .second-column {
+    margin-top: 1rem;
+    display: block;
+    width: 100%; }
+  nav .first-column, nav .second-column {
+    margin: 0; }
+  nav a {
+    display: inline-block;
+    width: 32%; } }
+
+@media (min-width: 45rem) {
+  nav {
+    display: block; }
+    nav .columns {
+      display: none;
+      margin-top: 2rem; }
+  .busca {
+    position: absolute;
+    right: 1rem;
+    top: 9.7rem;
+    width: 26rem; }
+  header .social {
+    margin-right: 27rem; } }
+
+@media (min-width: 60rem) {
+  header .menu-button {
     display: none; }
-    header nav a {
-      font-size: 1.8rem;
+  nav {
+    margin-bottom: 5.2rem; }
+  nav, nav .columns {
+    display: block; }
+  .first-column, .second-column {
+    position: absolute;
+    width: calc(50% - 15rem);
+    top: 1rem; }
+    .first-column a, .second-column a {
       display: block;
-      text-decoration: none;
-      text-transform: uppercase;
-      color: black;
-      margin-top: .6rem; }
-      header nav a:visited {
-        color: black; }
+      width: 100%; }
+  .first-column {
+    left: 0; }
+  .second-column {
+    right: 0; } }
+
+@media (min-width: 78rem) {
+  .first-column a, .second-column a {
+    display: inline-block;
+    width: auto;
+    margin: 3rem 2%; } }
+
+#projetos-container {
+  margin-top: 3rem; }
+
+.categorias {
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+  -moz-transform: skewY(-5deg);
+  -ms-transform: skewY(-5deg);
+  -o-transform: skewY(-5deg);
+  -webkit-transform: skewY(-5deg);
+  transform: skewY(-5deg); }
+  .categorias li {
+    padding: 0;
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: black;
+    list-style-type: none;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    min-height: 5rem;
+    height: calc(.17 * (100vh - 5rem));
+    font-size: 5vh;
+    position: relative; }
+    .categorias li a {
+      color: white;
+      display: block;
+      position: absolute;
+      -moz-transform: skewY(5deg) translateX(-50%) translateY(-60%);
+      -ms-transform: skewY(5deg) translateX(-50%) translateY(-60%);
+      -o-transform: skewY(5deg) translateX(-50%) translateY(-60%);
+      -webkit-transform: skewY(5deg) translateX(-50%) translateY(-60%);
+      transform: skewY(5deg) translateX(-50%) translateY(-60%);
+      left: 50%;
+      top: 60%; }
+  .categorias .design {
+    background-color: #14b0e6; }
+  .categorias .artes {
+    background-color: #00a68e; }
+  .categorias .educacao {
+    background-color: #fec221; }
+  .categorias .eventos {
+    background-color: #ef4028; }
