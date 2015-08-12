@@ -1,12 +1,6 @@
 ﻿[
   {
     "outputFile": "theme/oparque/css/main.css",
-    "inputFile": "theme/oparque/scss/main.scss",
-    "minify": {
-      "enabled": true
-    },
-    "includeInProject": true,
-    "sourceMap": false,
-    "options": {}
+    "inputFile": "theme/oparque/scss/main.scss"
   }
 ]

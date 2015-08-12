@@ -9,49 +9,36 @@
         {% else %} OPARQUE {% endif %}
     </title>
 
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-
     <link rel="stylesheet" href="{{ paths.theme }}css/main.min.css">
+
 </head>
 <body>
     <header>
         <div class="logo">
-            <a href="/">
-                <img src="{{ paths.theme }}images/logo.svg" alt="Logo d'OPARQUE" />
-            </a>
+            <a href="/"><span class="img-logo"></span></a>
         </div>
 
-        <div class="menu-button">
-            <button class="button-open" onclick="toggleMenu(); return false;"></button>
-        </div>
+        <div class="menu-bar">
+            <div class="menu-button">
+                <button class="button-open" onclick="toggleMenu(); return false;"></button>
+            </div>
 
-        <div class="social">
-            <a href="https://instagram.com/oparque/" target="_blank"><img src="{{ paths.theme }}images/instagram.svg" alt="" /></a>
-            <a href="https://www.facebook.com/grupocriativo.oparque" target="_blank"><img src="{{ paths.theme }}images/facebook.svg" alt="" /></a>
-            <a href="https://vimeo.com/oparque" target="_blank"><img src="{{ paths.theme }}images/vimeo.svg" alt="" /></a>
+            <div class="social">
+                <a href="https://www.facebook.com/grupocriativo.oparque" target="_blank"><img src="{{ paths.theme }}images/facebook.svg" alt="" /></a>
+                <a href="https://instagram.com/oparque/" target="_blank"><img src="{{ paths.theme }}images/instagram.svg" alt="" /></a>
+                <a href="https://vimeo.com/oparque" target="_blank"><img src="{{ paths.theme }}images/vimeo.svg" alt="" /></a>
+            </div>
         </div>
 
         <nav>
-            <div class="busca">
-                <form method="get" action="/busca">
-                    <input id="termo" name="termos" type="text" placeholder="Digite sua busca" />
-                    <input type="submit" value="" />
-                </form>
-            </div>
-
-            <div class="columns">
-                <div class="first-column">
-                    <a href="/">Sobre</a>
-                    <a href="/projetos/">Projetos</a>
-                    <a href="/">Onde estamos</a>
-                </div>
-
-                <div class="second-column">
-                    <a href="/">Tá rolando</a>
-                    <a href="/">Agenda</a>
-                    <a href="/">Contatos</a>
-                </div>
-            </div>
+            <ul>
+                <li><a href="/">Sobre</a></li>
+                <li><a href="/projetos/">Projetos</a></li>
+                <li><a href="/">Onde Estamos</a></li>
+                <li><a href="/">Tá Rolando</a></li>
+                <li><a href="/">Agenda</a></li>
+                <li><a href="/">Contatos</a></li>
+            </ul>
         </nav>
     </header>
 

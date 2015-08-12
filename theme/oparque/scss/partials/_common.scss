@@ -8,6 +8,8 @@ $oparque-yellow: rgb(254, 194, 33);
 $oparque-orange: rgb(239, 64, 40);
 $oparque-purple: rgb(181, 81, 146);
 
+$text-color: $oparque-black;
+
 $skewDegrees: 5deg;
 
 @mixin skew($direction) {
@@ -16,4 +18,16 @@ $skewDegrees: 5deg;
     -o-transform: skewY($direction * $skewDegrees);
     -webkit-transform: skewY($direction * $skewDegrees);
     transform: skewY($direction * $skewDegrees);
+}
+
+@mixin backImage($url: "", $position: center) {
+    border: none;
+    background-color: inherit;
+    background-position: $position;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @if $url != "" {
+        background-image: url($url);
+    }
 }

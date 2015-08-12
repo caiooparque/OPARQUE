@@ -63,6 +63,12 @@ header {
         position: absolute;
         right: 1.5rem;
         top: 12rem;
+
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            /* Master POG pra funcionar no IE. Perdão. */
+            top: 6.25rem;
+        }
+
         text-align: right;
 
         a {
@@ -225,7 +231,7 @@ nav {
     }
 }
 
-@media (min-width: 78rem /*1248px*/) {
+@media (min-width: 78rem /*1248px*/ ) {
     .first-column, .second-column {
         a {
             display: inline-block;

@@ -1,5 +1,48 @@
 </main>
 
+<footer>
+    <address>
+        <div class="mail">
+            <img src="{{ paths.theme }}images/facebook.svg" alt="Ícone do Facebook" />
+            <a class="content" href="mailto:contato@oparque.art.br">contato@oparque.art.br</a>
+        </div>
+
+        <div class="phone">
+            <img src="{{ paths.theme }}images/phone.svg" alt="Ícone de telefone" />
+            <a class="content" href="tel:552732073446">+55 (27) 3207-3446</a>
+        </div>
+
+        <div class="address">
+            <img src="{{ paths.theme }}images/pin.svg" alt="Ícone de endereço" />
+            <span class="content">Rua Sete de Setembro, 493. CEP: 29XXX-XXX. Centro. Vitória - ES.</span>
+        </div>
+    </address>
+
+    <div class="search">
+        <form method="get" action="/busca">
+            <input id="termo" name="termos" type="text" placeholder="Busca" />
+            <input type="submit" value="" />
+        </form>
+    </div>
+
+    <div class="social">
+        <div class="redes">
+            <a href="https://instagram.com/oparque/" target="_blank"><img src="{{ paths.theme }}images/instagram.svg" alt="" /></a>
+            <a href="https://www.facebook.com/grupocriativo.oparque" target="_blank"><img src="{{ paths.theme }}images/facebook.svg" alt="" /></a>
+            <a href="https://vimeo.com/oparque" target="_blank"><img src="{{ paths.theme }}images/vimeo.svg" alt="" /></a>
+        </div>
+
+        <p>Cadastre seu  e-mail para receber novidades d'OPARQUE</p>
+
+        <div class="form">
+            <form method="get" action="/newsletter">
+                <input id="email" name="email" type="email" placeholder="E-mail" />
+                <input type="submit" value="" />
+            </form>
+        </div>
+    </div>
+</footer>
+
 <!--[if lt IE 9]>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <![endif]-->

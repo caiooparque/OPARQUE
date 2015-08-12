@@ -20,8 +20,12 @@ html {
 
 body {
     margin: 0;
-    background-color: white;
+    background-color: red; //TESTE
     font-size: 1.6em;
+}
+
+main {
+    height: 1rem; //TESTE
 }
 
 /* HTML5 display definitions
@@ -102,6 +106,8 @@ a {
     a:hover {
         outline: 0;
     }
+
+
 
 /* Text-level semantics
    ========================================================================== */
@@ -444,4 +450,9 @@ html {
     -webkit-box-sizing: inherit;
     -moz-box-sizing: inherit;
     box-sizing: inherit;
+}
+
+/* Remove outline from buttons*/
+button:focus {
+    outline: none;
 }
