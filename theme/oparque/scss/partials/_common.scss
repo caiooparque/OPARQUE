@@ -1,5 +1,6 @@
 $oparque-black: rgb(0, 0, 0);
 $oparque-white: rgb(255, 255, 255);
+
 $oparque-gray: rgb(76, 76, 78);
 $oparque-blue: rgb(58, 85, 155);
 $oparque-cyan: rgb(20, 176, 230);
@@ -12,22 +13,60 @@ $text-color: $oparque-black;
 
 $skewDegrees: 5deg;
 
-@mixin skew($direction) {
+@mixin skew($direction, $backface: "") {
     -moz-transform: skewY($direction * $skewDegrees);
     -ms-transform: skewY($direction * $skewDegrees);
     -o-transform: skewY($direction * $skewDegrees);
     -webkit-transform: skewY($direction * $skewDegrees);
     transform: skewY($direction * $skewDegrees);
+
+    @if $backface != "" {
+        -moz-backface-visibility: $backface;
+        -webkit-backface-visibility: $backface;
+        backface-visibility: $backface;
+    }
 }
 
-@mixin backImage($url: "", $position: center) {
+@mixin backImage($url: "", $position: center, $size: contain) {
     border: none;
     background-color: inherit;
     background-position: $position;
-    background-size: contain;
+    background-size: $size;
     background-repeat: no-repeat;
 
     @if $url != "" {
         background-image: url($url);
+    }
+}
+
+@if not variable-exists(_COMMON_SCSS) {
+    $_COMMON_SCSS: true;
+
+    main {
+        padding: 0 2rem;
+    }
+
+    input[type=text], input[type=email] {
+        border: .3rem solid $oparque-black;
+        border-radius: .5rem;
+        padding: .5rem;
+        vertical-align: middle;
+
+        &:focus {
+            border-color: $oparque-orange;
+            outline: none;
+        }
+    }
+
+    input[type=submit] {
+        vertical-align: middle;
+        $width: 2.75rem;
+        width: $width;
+        margin-left: -1rem - $width;
+        @include backImage;
+
+        &:focus {
+            outline: none;
+        }
     }
 }

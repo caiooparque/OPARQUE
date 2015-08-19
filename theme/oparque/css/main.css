@@ -46,18 +46,16 @@ html {
   /* 2 */
   -webkit-text-size-adjust: 100%;
   /* 2 */
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  max-width: 1280px;
+  margin: 0 auto; }
 
 /**
  * Remove default margin.
  */
 body {
   margin: 0;
-  background-color: red;
   font-size: 1.6em; }
-
-main {
-  height: 1rem; }
 
 /* HTML5 display definitions
    ========================================================================== */
@@ -413,6 +411,40 @@ html {
 button:focus {
   outline: none; }
 
+main {
+  padding: 0 2rem; }
+
+input[type=text], input[type=email] {
+  border: 0.3rem solid black;
+  border-radius: .5rem;
+  padding: .5rem;
+  vertical-align: middle; }
+  input[type=text]:focus, input[type=email]:focus {
+    border-color: #ef4028;
+    outline: none; }
+
+input[type=submit] {
+  vertical-align: middle;
+  width: 2.75rem;
+  margin-left: -3.75rem;
+  border: none;
+  background-color: inherit;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat; }
+  input[type=submit]:focus {
+    outline: none; }
+
+.social {
+  display: inline-block;
+  vertical-align: middle; }
+  .social a {
+    display: inline-block;
+    width: 3rem;
+    margin-right: 2rem; }
+    .social a:last-child {
+      margin-right: 0; }
+
 header {
   position: relative;
   background-color: white;
@@ -453,13 +485,6 @@ header {
     background-image: url(../images/down-arrow.svg); }
   header .button-close {
     background-image: url(../images/close.svg); }
-  header .social {
-    display: inline-block;
-    vertical-align: middle; }
-    header .social a {
-      display: inline-block;
-      width: 3rem;
-      margin-left: 2rem; }
   header nav {
     display: none;
     text-align: center; }
@@ -477,7 +502,7 @@ header {
       text-decoration: none;
       font-size: 2rem; }
 
-@media all and (min-width: 50rem) {
+@media all and (min-width: 42rem) {
   header .logo a {
     max-width: 23rem;
     height: 23rem; }
@@ -507,7 +532,7 @@ header {
   header .social {
     text-align: left;
     width: 20rem;
-    left: 0;
+    left: 2rem;
     top: 12rem; }
   header nav {
     display: block;
@@ -530,23 +555,145 @@ header {
       header nav li:nth-child(3) {
         margin-right: 36rem; } }
 
+/** {
+    outline: 1px solid red;
+}*/
 footer {
+  font-size: 1.4rem;
   background-color: white;
   padding: 2rem; }
   footer a {
     text-decoration: none;
     color: black; }
   footer address {
+    display: inline-block;
     width: 100%;
     font-style: normal; }
     footer address div {
-      width: 25rem;
+      width: 26rem;
       margin: 2rem auto; }
     footer address img {
       display: inline-block;
       width: 3rem;
+      margin-right: 1rem;
+      margin-left: .5rem;
       vertical-align: middle; }
     footer address .content {
       display: inline-block;
       vertical-align: middle;
-      width: 23rem; }
+      width: 21rem; }
+  footer .search {
+    text-align: center;
+    margin-top: 3rem; }
+    footer .search input[type=text] {
+      width: 21rem; }
+    footer .search input[type=submit] {
+      background-image: url(../images/busca.svg); }
+  footer .contato {
+    text-align: center;
+    margin-top: 1rem; }
+    footer .contato .social {
+      display: block; }
+    footer .contato p {
+      display: inline-block;
+      margin-bottom: 1rem;
+      width: 26rem;
+      text-align: left;
+      margin-top: 3rem; }
+    footer .contato input[type=email] {
+      width: 21rem; }
+    footer .contato input[type=submit] {
+      background-image: url(../images/right-arrow.svg); }
+
+@media all and (min-width: 22rem) {
+  footer {
+    font-size: 1.6rem; }
+    footer address div {
+      width: 29rem; }
+    footer address .content {
+      width: 24rem; }
+    footer .contato p {
+      width: 29rem; }
+    footer .search input[type=text], footer .contato input[type=email] {
+      width: 29rem; } }
+
+@media all and (min-width: 42rem) {
+  footer address {
+    vertical-align: top;
+    display: inline-block;
+    max-width: 30rem; }
+    footer address .phone {
+      margin: 3rem 0; }
+  footer .forms {
+    vertical-align: bottom;
+    display: inline-block;
+    max-width: 30rem;
+    margin: 1rem 0 1rem calc(100% - 61rem); }
+  footer .search {
+    margin-top: 0;
+    margin-bottom: 2rem; }
+  footer .contato p {
+    margin-top: 1rem; } }
+
+@media all and (min-width: 50rem) {
+  footer {
+    padding: 2rem 10%; } }
+
+#projetos-container .categorias {
+  padding: 0;
+  -moz-transform: skewY(-5deg);
+  -ms-transform: skewY(-5deg);
+  -o-transform: skewY(-5deg);
+  -webkit-transform: skewY(-5deg);
+  transform: skewY(-5deg);
+  -moz-backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  font-size: 0; }
+  #projetos-container .categorias li {
+    display: inline-block;
+    width: 100%;
+    min-height: 15rem;
+    height: 15rem;
+    height: calc(25vh - 5rem);
+    max-height: 35rem;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.6rem; }
+  #projetos-container .categorias .content {
+    border: none;
+    background-color: inherit;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%; }
+  #projetos-container .categorias .design .content {
+    background-image: url(../images/projetos/mao_design.jpg); }
+  #projetos-container .categorias .arte .content {
+    background-image: url(../images/projetos/mao_arte.jpg); }
+  #projetos-container .categorias .educacao .content {
+    background-image: url(../images/projetos/mao_educacao.jpg); }
+  #projetos-container .categorias .eventos .content {
+    background-image: url(../images/projetos/mao_eventos.jpg); }
+  #projetos-container .categorias a {
+    vertical-align: middle;
+    text-align: center; }
+  #projetos-container .categorias img {
+    display: block;
+    -moz-transform: skewY(5deg);
+    -ms-transform: skewY(5deg);
+    -o-transform: skewY(5deg);
+    -webkit-transform: skewY(5deg);
+    transform: skewY(5deg);
+    height: 100%;
+    width: auto;
+    margin: auto; }
+
+@media all and (min-width: 64rem) {
+  #projetos-container .categorias li {
+    width: 50%;
+    height: calc(50vh - 10rem); }
+  #projetos-container .categorias img {
+    height: 85%; } }

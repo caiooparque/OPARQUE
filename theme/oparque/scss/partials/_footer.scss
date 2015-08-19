@@ -1,6 +1,13 @@
 @import "common";
 
+$input-width: 21rem;
+
+/** {
+    outline: 1px solid red;
+}*/
+
 footer {
+    font-size: 1.4rem;
     background-color: white;
     padding: 2rem;
 
@@ -10,25 +17,128 @@ footer {
     }
 
     address {
+        display: inline-block;
         width: 100%;
 
         div {
-            width: 25rem;
+            width: $input-width + 5rem;
             margin: 2rem auto;
         }
 
         img {
             display: inline-block;
             width: 3rem;
+            margin-right: 1rem;
+            margin-left: .5rem;
             vertical-align: middle;
         }
 
         .content {
             display: inline-block;
             vertical-align: middle;
-            width: 23rem;
+            width: $input-width;
         }
 
         font-style: normal;
+    }
+
+    .search {
+        text-align: center;
+        margin-top: 3rem;
+
+        input[type=text] {
+            width: $input-width;
+        }
+
+        input[type=submit] {
+            background-image: url(../images/busca.svg);
+        }
+    }
+
+    .contato {
+        text-align: center;
+        margin-top: 1rem;
+
+        .social {
+            display: block;
+        }
+
+        p {
+            display: inline-block;
+            margin-bottom: 1rem;
+            width: $input-width + 5rem;
+            text-align: left;
+            margin-top: 3rem;
+        }
+
+        input[type=email] {
+            width: $input-width;
+        }
+
+        input[type=submit] {
+            background-image: url(../images/right-arrow.svg);
+        }
+    }
+}
+
+@media all and (min-width: 22rem /*352px*/ ) {
+    $input-width: 29rem;
+
+    footer {
+        font-size: 1.6rem;
+
+        address {
+            div {
+                width: $input-width;
+            }
+
+            .content {
+                width: $input-width - 5rem;
+            }
+        }
+
+        .contato p {
+            width: $input-width;
+        }
+
+        .search input[type=text], .contato input[type=email] {
+            width: $input-width;
+        }
+    }
+}
+
+@media all and (min-width: 42rem /*672px*/ ) {
+    footer {
+        address {
+            vertical-align: top;
+            display: inline-block;
+            max-width: 30rem;
+
+            .phone {
+                margin: 3rem 0;
+            }
+        }
+
+        .forms {
+            vertical-align: bottom;
+            display: inline-block;
+            max-width: 30rem;
+            margin: 1rem 0 1rem calc(100% - 61rem);
+        }
+
+        .search {
+            margin-top: 0;
+            margin-bottom: 2rem;
+        }
+
+        .contato p {
+            margin-top: 1rem;
+        }
+    }
+}
+
+@media all and (min-width: 50rem /*800px*/ ) {
+    footer {
+        padding: 2rem 10%;
     }
 }

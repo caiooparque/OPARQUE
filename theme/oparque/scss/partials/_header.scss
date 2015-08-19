@@ -1,5 +1,20 @@
 @import "common";
 
+.social {
+    display: inline-block;
+    vertical-align: middle;
+
+    a {
+        display: inline-block;
+        width: 3rem;
+        margin-right: 2rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
 header {
     position: relative;
     background-color: white;
@@ -48,17 +63,6 @@ header {
         background-image: url(../images/close.svg);
     }
 
-    .social {
-        display: inline-block;
-        vertical-align: middle;
-
-        a {
-            display: inline-block;
-            width: 3rem;
-            margin-left: 2rem;
-        }
-    }
-
     nav {
         display: none;
         text-align: center;
@@ -84,7 +88,7 @@ header {
     }
 }
 
-@media all and (min-width: 50rem /*800px*/ ) {
+@media all and (min-width: 42rem /*672px*/ ) {
     header {
         .logo {
             a {
@@ -137,7 +141,7 @@ header {
         .social {
             text-align: left;
             width: 20rem;
-            left: 0;
+            left: 2rem;
             top: 12rem;
         }
 
