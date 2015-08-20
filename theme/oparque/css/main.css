@@ -646,6 +646,11 @@ footer {
   -o-transform: skewY(-5deg);
   -webkit-transform: skewY(-5deg);
   transform: skewY(-5deg);
+  -moz-transform-origin: right;
+  -ms-transform-origin: right;
+  -o-transform-origin: right;
+  -webkit-transform-origin: right;
+  transform-origin: right;
   -moz-backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -687,9 +692,63 @@ footer {
     -o-transform: skewY(5deg);
     -webkit-transform: skewY(5deg);
     transform: skewY(5deg);
+    -moz-transform-origin: left;
+    -ms-transform-origin: left;
+    -o-transform-origin: left;
+    -webkit-transform-origin: left;
+    transform-origin: left;
     height: 100%;
     width: auto;
     margin: auto; }
+
+#projetos-container .sobre {
+  text-align: right;
+  background-color: #14b0e6;
+  -moz-transform: skewY(-5deg);
+  -ms-transform: skewY(-5deg);
+  -o-transform: skewY(-5deg);
+  -webkit-transform: skewY(-5deg);
+  transform: skewY(-5deg);
+  -moz-transform-origin: right;
+  -ms-transform-origin: right;
+  -o-transform-origin: right;
+  -webkit-transform-origin: right;
+  transform-origin: right;
+  margin: 2rem 0;
+  padding: 3rem 3.5rem;
+  /*&:after {
+            @include skew(2, "", right);
+            display: block;
+            position: absolute;
+            bottom: -3rem;
+            right: $padding;
+            z-index: 100;
+            background-color: red;
+            margin: 0 -3.5rem;
+            content: "";
+            height: 5rem;
+            width: 100%;
+        }*/ }
+  #projetos-container .sobre h1, #projetos-container .sobre p {
+    margin: 1rem 0; }
+  #projetos-container .sobre img, #projetos-container .sobre span {
+    display: block;
+    -moz-transform: skewY(5deg);
+    -ms-transform: skewY(5deg);
+    -o-transform: skewY(5deg);
+    -webkit-transform: skewY(5deg);
+    transform: skewY(5deg);
+    -moz-transform-origin: right;
+    -ms-transform-origin: right;
+    -o-transform-origin: right;
+    -webkit-transform-origin: right;
+    transform-origin: right; }
+  #projetos-container .sobre img {
+    height: 40px;
+    height: 10vw;
+    max-height: 4rem;
+    width: auto;
+    margin: 0 0 2rem auto; }
 
 @media all and (min-width: 64rem) {
   #projetos-container .categorias li {

@@ -1,5 +1,9 @@
 @import "common";
 
+* {
+    //outline: 1px solid red;
+}
+
 #projetos-container {
     .categorias {
         padding: 0;
@@ -11,7 +15,7 @@
             width: 100%;
             min-height: 15rem;
             height: 15rem;
-            height: calc(25vh - 5rem); //calc(.25 * (100vh - 20rem));
+            height: calc(25vh - 5rem); // Fórmula original: calc(.25 * (100vh - 20rem));
             max-height: 35rem;
             list-style-type: none;
             padding: 0;
@@ -55,11 +59,52 @@
         }
     }
 
+    .sobre {
+        $padding: 3.5rem;
+
+        text-align: right;
+        background-color: $oparque-cyan;
+        @include skew(-1);
+        margin: 2rem 0;
+        padding: 3rem $padding;
+
+        h1, p {
+            margin: 1rem 0;
+        }
+
+        img, span {        
+            display: block;    
+            @include skew(1, "", right);
+        }
+
+        img {
+            height: 40px; // Fallback
+            height: 10vw;
+            max-height: 4rem;
+            width: auto;
+            margin: 0 0 2rem auto;
+        }
+
+        /*&:after {
+            @include skew(2, "", right);
+            display: block;
+            position: absolute;
+            bottom: -3rem;
+            right: $padding;
+            z-index: 100;
+            background-color: red;
+            margin: 0 -#{$padding};
+            content: "";
+            height: 5rem;
+            width: 100%;
+        }*/
+    }
+
     @media all and (min-width: 64rem /*1024px*/ ) {
         .categorias {
             li {
                 width: 50%;
-                height: calc(50vh - 10rem); //calc(.5 * (100vh - 20rem));
+                height: calc(50vh - 10rem); // Fórmula original: calc(.5 * (100vh - 20rem));
             }
 
             img {

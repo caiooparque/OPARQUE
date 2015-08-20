@@ -11,14 +11,28 @@ $oparque-purple: rgb(181, 81, 146);
 
 $text-color: $oparque-black;
 
-$skewDegrees: 5deg;
+@mixin skew($direction, $backface: "", $origin: "") {
+    $skewDegrees: 5deg;
 
-@mixin skew($direction, $backface: "") {
     -moz-transform: skewY($direction * $skewDegrees);
     -ms-transform: skewY($direction * $skewDegrees);
     -o-transform: skewY($direction * $skewDegrees);
     -webkit-transform: skewY($direction * $skewDegrees);
     transform: skewY($direction * $skewDegrees);
+
+    @if $origin == "" {
+        $origin: left;
+
+        @if $direction < 0 {
+            $origin: right;
+        }
+    }
+
+    -moz-transform-origin: $origin;
+    -ms-transform-origin: $origin;
+    -o-transform-origin: $origin;
+    -webkit-transform-origin: $origin;
+    transform-origin: $origin;
 
     @if $backface != "" {
         -moz-backface-visibility: $backface;

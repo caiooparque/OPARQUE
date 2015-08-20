@@ -1,0 +1,2 @@
+- Sprites
+- Minimizar tamanho das imagens

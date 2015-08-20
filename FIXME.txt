@@ -1,2 +1,3 @@
 ﻿- Vh não funciona corretamente no iOS7
+- Skew em browsers antigos (principalmente safari)
 - IE8
