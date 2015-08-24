@@ -1,4 +1,5 @@
 @import "common";
+@import "skewed";
 
 * {
     //outline: 1px solid red;
@@ -6,27 +7,13 @@
 
 #projetos-container {
     .categorias {
-        padding: 0;
-        @include skew(-1, hidden);
-        font-size: 0;
+        @include skewed(-1, hidden, "", 30vh, 15rem, 30rem);
 
-        li {
-            display: inline-block;
-            width: 100%;
-            min-height: 15rem;
-            height: 15rem;
-            height: calc(25vh - 5rem); // Fórmula original: calc(.25 * (100vh - 20rem));
-            max-height: 35rem;
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            font-size: 1.6rem;
-        }
-
-        .content {
-            @include backImage("", center, cover);
-            width: 100%;
-            height: 100%;
+        img {
+            display: block;
+            height: 60%;
+            width: auto;
+            margin: auto;
         }
 
         .design .content {
@@ -49,31 +36,28 @@
             vertical-align: middle;
             text-align: center;
         }
-
-        img {
-            display: block;
-            @include skew(1);
-            height: 100%;
-            width: auto;
-            margin: auto;
-        }
     }
 
     .sobre {
         $padding: 3.5rem;
+        @include skew(1, "", right);
+        margin-top: 2rem;
+        overflow: hidden;
 
-        text-align: right;
-        background-color: $oparque-cyan;
-        @include skew(-1);
-        margin: 2rem 0;
-        padding: 3rem $padding;
+        .inner {
+            text-align: right;
+            background-color: $oparque-cyan;
+            @include skew(-2);
+            margin: 0;
+            padding: 3rem $padding 5rem $padding;
+        }
 
         h1, p {
             margin: 1rem 0;
         }
 
-        img, span {        
-            display: block;    
+        img, span {
+            display: block;
             @include skew(1, "", right);
         }
 
@@ -84,32 +68,128 @@
             width: auto;
             margin: 0 0 2rem auto;
         }
+    }
 
-        /*&:after {
-            @include skew(2, "", right);
-            display: block;
-            position: absolute;
-            bottom: -3rem;
-            right: $padding;
-            z-index: 100;
-            background-color: red;
-            margin: 0 -#{$padding};
-            content: "";
-            height: 5rem;
+    .projetos {
+        $height: 35rem;
+        @include skewed(1, hidden, right, $height, $height, $height);
+
+        ul, li {
+            margin-top: 1rem;
+        }
+
+        li {
+            position: relative;
+        }
+
+        .name, .label {
+            display: inline-block;
             width: 100%;
-        }*/
+            position: absolute;
+
+            span {
+                display: inline-block;
+                color: white;
+                padding: 1rem;
+            }
+        }
+
+        .name {
+            top: 1rem;
+            left: 2rem;
+            font-size: 2.5rem;
+
+            span {
+                @include skew(-1);
+            }
+        }
+
+        .label {
+            bottom: 1rem;
+            right: 2rem;
+            text-align: right;
+
+            span {
+                @include skew(-1, "", left);
+            }
+        }
+    }
+
+
+    @media all and (min-width: 25rem /*400px*/ ) {
+        .categorias img {
+            height: 80%;
+        }
+    }
+
+
+    @media all and (min-width: 30rem /*480px*/ ) {
+        .categorias img {
+            height: 100%;
+        }
+    }
+
+    @media all and (min-width: 40rem /*640px*/ ) {
+        .projetos {
+            li {
+                width: 50%;
+
+                &:nth-child(odd) {
+                    padding-right: 1rem;
+                }
+            }
+        }
+    }
+
+    @media all and (min-width: 42rem /*672px*/ ) {
+        .sobre p {
+            width: 66%;
+            margin-left: auto;
+        }
+    }
+
+    @media all and (min-width: 60rem /*960px*/ ) {
+        .projetos {
+            li {
+                width: 33.33%;
+                padding-right: 1rem;
+
+                &:nth-child(3n) {
+                    padding: 0;
+                }
+            }
+        }
     }
 
     @media all and (min-width: 64rem /*1024px*/ ) {
         .categorias {
+            $min-height: 30rem;
+            $max-height: 45rem;
+            $height-fallback: 30rem;
+            $height: 35vh;
+
             li {
                 width: 50%;
-                height: calc(50vh - 10rem); // Fórmula original: calc(.5 * (100vh - 20rem));
+                height: $height-fallback;
+                height: $height;
+                min-height: $min-height;
+                max-height: $max-height;
+            }
+
+            .content {
+                height: $height-fallback;
+                height: $height;
+                min-height: $min-height;
+                max-height: $max-height;
             }
 
             img {
                 height: 85%;
             }
+        }
+
+        .sobre p {
+            width: 50%;
         }
     }
 }

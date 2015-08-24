@@ -1,6 +1,7 @@
-﻿[
+[
   {
     "outputFile": "theme/oparque/css/main.css",
-    "inputFile": "theme/oparque/scss/main.scss"
+    "inputFile": "theme/oparque/scss/main.scss",
+    "sourceMap": false
   }
 ]
