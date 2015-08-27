@@ -46,73 +46,58 @@
     }
 
     .sobre {
-        $padding: 3.5rem;
-        margin-top: 2rem;
-        overflow: hidden;
-
-        .inner {
-            text-align: right;
-            background-color: $oparque-cyan;
-            margin: 0;
-            padding: 3rem $padding 5rem $padding;
-        }
-
-        h1, p {
-            margin: 1rem 0;
-        }
-
-        img, span {
-            display: block;
-        }
+        color: $oparque-orange;
+        text-align: right;
+        margin: 7rem 0;
 
         img {
-            height: 40px; // Fallback
-            height: 10vw;
-            max-height: 4rem;
-            width: auto;
-            margin: 0 0 2rem auto;
+            max-width: 35rem;
         }
     }
 
     .projetos {
-        $height: 35rem;
-
-        ul, li {
-            margin-top: 1rem;
-        }
-
         li {
-            position: relative;
+            @extend .skewedDown;
+            height: 30rem;
+            width: 100%;
         }
 
-        .name, .label {
-            display: inline-block;
-            width: 100%;
+        .background {
+            @extend .originLeft;
+        }
+
+        .content {
+            color: white;
+            text-transform: uppercase;
+            vertical-align: bottom;
+            padding: 1.5rem;
+            letter-spacing: .075em; /* Uso proposital de "em" */
+        }
+
+        .info {
             position: absolute;
+            width: calc(100% - 3rem);
+            bottom: 0;
+        }
+
+        .title {
+            font-size: 2.4rem;
 
             span {
-                display: inline-block;
-                color: white;
+                padding: .2rem 1.6rem;
+            }
+        }
+
+        .subtitle {
+            text-align: right;
+
+            span {
                 padding: 1rem;
             }
         }
 
-        .name {
-            top: 1rem;
-            left: 2rem;
-            font-size: 2.5rem;
-
-            span {
-            }
-        }
-
-        .label {
-            bottom: 1rem;
-            right: 2rem;
-            text-align: right;
-
-            span {
-            }
+        span {
+            display: inline-block;
         }
     }
 
@@ -130,10 +115,11 @@
         }
     }
 
-    @media all and (min-width: 40rem /*640px*/ ) {
+    @media all and (min-width: 38rem /*608px*/ ) {
         .projetos {
             li {
-                width: 50%;
+                width: 40%;
+                @include skewedDownBreakPoints(40%, 2);
 
                 &:nth-child(odd) {
                     padding-right: 1rem;
@@ -143,22 +129,26 @@
     }
 
     @media all and (min-width: 42rem /*672px*/ ) {
-        .sobre p {
-            width: 66%;
-            margin-left: auto;
+        .sobre {
+            margin-right: 3rem;
+
+            p {
+                width: 66%;
+                margin-left: auto;
+            }
         }
     }
 
     @media all and (min-width: 60rem /*960px*/ ) {
         .projetos {
-            li {
+            /*li {
                 width: 33.33%;
                 padding-right: 1rem;
 
                 &:nth-child(3n) {
                     padding: 0;
                 }
-            }
+            }*/
         }
     }
 

@@ -26,6 +26,12 @@ $text-color: $oparque-black;
 @if not variable-exists(_COMMON_SCSS) {
     $_COMMON_SCSS: true;
 
+    /* Alguma ajuda para debug */
+    .debug {
+        outline: 1px solid red;
+    }
+
+
     input[type=text], input[type=email] {
         border: .3rem solid $oparque-black;
         border-radius: .5rem;
