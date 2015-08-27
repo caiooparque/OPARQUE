@@ -1,7 +1,7 @@
-@import "pluto";
-@import "normalize";
+@import "pluto.scss";
+@import "normalize.scss";
 
-@import "partials/header";
-@import "partials/footer";
+@import "partials/_header.scss";
+@import "partials/_footer.scss";
 
-@import "partials/projetos";
+@import "partials/_projetos.scss";

@@ -2,14 +2,12 @@
 
 $input-width: 21rem;
 
-/** {
-    outline: 1px solid red;
-}*/
-
 footer {
+    position: relative;
     font-size: 1.4rem;
     background-color: white;
     padding: 2rem;
+    margin-top: 4rem;
 
     a {
         text-decoration: none;

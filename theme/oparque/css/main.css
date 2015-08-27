@@ -1,4 +1,5 @@
-﻿@font-face {
+﻿@charset "UTF-8";
+@font-face {
   font-family: 'pluto';
   src: url("fonts/pluto/plutoheavy-webfont.eot");
   src: url("fonts/pluto/plutoheavy-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/pluto/plutoheavy-webfont.woff2") format("woff2"), url("fonts/pluto/plutoheavy-webfont.woff") format("woff"), url("fonts/pluto/plutoheavy-webfont.ttf") format("truetype"), url("fonts/pluto/plutoheavy-webfont.svg#pluto") format("svg");
@@ -564,13 +565,12 @@ header {
       header nav li:nth-child(3) {
         margin-right: 36rem; } }
 
-/** {
-    outline: 1px solid red;
-}*/
 footer {
+  position: relative;
   font-size: 1.4rem;
   background-color: white;
-  padding: 2rem; }
+  padding: 2rem;
+  margin-top: 4rem; }
   footer a {
     text-decoration: none;
     color: black; }
@@ -648,102 +648,141 @@ footer {
   footer {
     padding: 2rem 10%; } }
 
-#projetos-container .categorias {
-  padding: 0;
-  font-size: 0;
+/* Ângulo de inclinação do site */
+/* Valor aproximado da tangente de 5deg. Arredondado para cima */
+/* Inclina um objeto e seus filhos */
+.transformSkewUp, .skewedUp .background, #projetos-container .categorias li .background, .skewedDown .background .image {
   -moz-transform: skewY(-5deg);
   -ms-transform: skewY(-5deg);
   -o-transform: skewY(-5deg);
   -webkit-transform: skewY(-5deg);
-  transform: skewY(-5deg);
-  -moz-transform-origin: right;
-  -ms-transform-origin: right;
-  -o-transform-origin: right;
-  -webkit-transform-origin: right;
-  transform-origin: right;
-  -moz-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-  #projetos-container .categorias li {
-    display: inline-block;
-    font-size: 1.6rem;
-    overflow: hidden;
-    width: 100%;
-    min-height: 15rem;
-    height: 15rem;
-    height: 30vh;
-    max-height: 30rem; }
-  #projetos-container .categorias .content {
-    width: 100%;
-    min-height: 15rem;
-    height: 15rem;
-    height: 30vh;
-    max-height: 30rem;
-    display: inline-block;
-    border: none;
-    background-color: inherit;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; }
-  #projetos-container .categorias img {
-    display: block;
-    height: 60%;
-    width: auto;
-    margin: auto; }
-  #projetos-container .categorias .design .content {
-    background-image: url(../images/projetos/mao_design.jpg); }
-  #projetos-container .categorias .arte .content {
-    background-image: url(../images/projetos/mao_arte.jpg); }
-  #projetos-container .categorias .educacao .content {
-    background-image: url(../images/projetos/mao_educacao.jpg); }
-  #projetos-container .categorias .eventos .content {
-    background-image: url(../images/projetos/mao_eventos.jpg); }
-  #projetos-container .categorias a {
-    vertical-align: middle;
-    text-align: center; }
+  transform: skewY(-5deg); }
 
-#projetos-container .sobre {
+.transformSkewDown, .skewedUp .background .image, #projetos-container .categorias li .background .image, .skewedDown .background {
   -moz-transform: skewY(5deg);
   -ms-transform: skewY(5deg);
   -o-transform: skewY(5deg);
   -webkit-transform: skewY(5deg);
-  transform: skewY(5deg);
-  -moz-transform-origin: right;
-  -ms-transform-origin: right;
-  -o-transform-origin: right;
-  -webkit-transform-origin: right;
-  transform-origin: right;
+  transform: skewY(5deg); }
+
+/*  Prepara um objeto com imagem de fundo para ser inclinado.
+    Requer a seguinte estrutura:
+    
+    <div class="skewed" style="width: (w); height: (h)">
+        <div class="background">
+            <div class="image" style="background-image: url(img)"></div>
+        </div>
+
+        <div class="content">Informações aqui</div>
+    </div>
+*/
+.skewed, .skewedUp, #projetos-container .categorias li, .skewedDown {
+  display: inline-block;
+  position: relative;
+  /*  Container da imagem de background
+        É necessário separar o container da imagem propriamente dita
+        pois estes serão inclinados e desinclinados individualmente
+    */ }
+  .skewed .background, .skewedUp .background, #projetos-container .categorias li .background, .skewedDown .background {
+    /* Coloca a frente de todo conteúdo*/
+    position: absolute;
+    z-index: 1;
+    /*  É necessário remover o padding e margin da caixa para que seja
+            possível modificar a altura do container conforme sua largura
+         */
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    /* Ocupa todo o espaço */
+    width: 100%;
+    height: 100%;
+    /*  A imagem interna precisará ser maior que o container para que
+            o espaço vazio criado pelo skew não apareça. Assim é necessário
+            esconder o que sobrar dela.
+        */
+    overflow: hidden; }
+    .skewed .background .image, .skewedUp .background .image, #projetos-container .categorias li .background .image, .skewedDown .background .image {
+      /* Ocupa todo o espaço */
+      width: 100%;
+      height: 100%;
+      /*  Valores para o padding em porcentagem são relacionado à largura, mesmo
+                para top e bottom. Desta forma o objeto é redimensionado conforme o deslocamento
+                aplicado pelo skew.
+            */
+      padding-top: 8.75%;
+      /* Desloca a imagem metade do valor aumentado para centralizar */
+      margin-top: -4.375%;
+      /* Centraliza a largura e garante que a imagem cubra todo o container */
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      /* POG pro Chrome parar de exibir a imagem serrilhada */
+      -moz-backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
+  .skewed .content, .skewedUp .content, #projetos-container .categorias li .content, .skewedDown .content {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    /* Posiciona à frente do background */
+    position: absolute;
+    z-index: 2; }
+
+/* Inclina para cima */
+.skewedUp .background, #projetos-container .categorias li .background {
+  /* Inclina o container */ }
+  .skewedUp .background .image, #projetos-container .categorias li .background .image {
+    /* Desinclina a image */ }
+
+/* Inclina para baixo */
+.skewedDown .background {
+  /* Inclina o container */ }
+  .skewedDown .background .image {
+    /* Desinclina a image */ }
+
+/*  Modifica a posição dos objetos para se adequar a diversas colunas
+    quandos estes estiver inclinados para cima
+*/
+/* Semelhante à anterior, porém para elemento de inclinação para baixo */
+#projetos-container .categorias {
+  font-size: 0; }
+  #projetos-container .categorias li {
+    min-height: 15rem;
+    height: 15rem;
+    height: 30vh;
+    max-height: 30rem;
+    width: 100%;
+    font-size: 1.6rem; }
+  #projetos-container .categorias .design .image {
+    background-image: url(../images/projetos/mao_design.jpg); }
+  #projetos-container .categorias .arte .image {
+    background-image: url(../images/projetos/mao_arte.jpg); }
+  #projetos-container .categorias .educacao .image {
+    background-image: url(../images/projetos/mao_educacao.jpg); }
+  #projetos-container .categorias .eventos .image {
+    background-image: url(../images/projetos/mao_eventos.jpg); }
+  #projetos-container .categorias a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    text-align: center; }
+  #projetos-container .categorias img {
+    height: 60%;
+    max-height: 100%; }
+
+#projetos-container .sobre {
   margin-top: 2rem;
   overflow: hidden; }
   #projetos-container .sobre .inner {
     text-align: right;
     background-color: #14b0e6;
-    -moz-transform: skewY(-10deg);
-    -ms-transform: skewY(-10deg);
-    -o-transform: skewY(-10deg);
-    -webkit-transform: skewY(-10deg);
-    transform: skewY(-10deg);
-    -moz-transform-origin: right;
-    -ms-transform-origin: right;
-    -o-transform-origin: right;
-    -webkit-transform-origin: right;
-    transform-origin: right;
     margin: 0;
     padding: 3rem 3.5rem 5rem 3.5rem; }
   #projetos-container .sobre h1, #projetos-container .sobre p {
     margin: 1rem 0; }
   #projetos-container .sobre img, #projetos-container .sobre span {
-    display: block;
-    -moz-transform: skewY(5deg);
-    -ms-transform: skewY(5deg);
-    -o-transform: skewY(5deg);
-    -webkit-transform: skewY(5deg);
-    transform: skewY(5deg);
-    -moz-transform-origin: right;
-    -ms-transform-origin: right;
-    -o-transform-origin: right;
-    -webkit-transform-origin: right;
-    transform-origin: right; }
+    display: block; }
   #projetos-container .sobre img {
     height: 40px;
     height: 10vw;
@@ -751,85 +790,30 @@ footer {
     width: auto;
     margin: 0 0 2rem auto; }
 
-#projetos-container .projetos {
-  padding: 0;
-  font-size: 0;
-  -moz-transform: skewY(5deg);
-  -ms-transform: skewY(5deg);
-  -o-transform: skewY(5deg);
-  -webkit-transform: skewY(5deg);
-  transform: skewY(5deg);
-  -moz-transform-origin: right;
-  -ms-transform-origin: right;
-  -o-transform-origin: right;
-  -webkit-transform-origin: right;
-  transform-origin: right;
-  -moz-backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; }
-  #projetos-container .projetos li {
+#projetos-container .projetos ul, #projetos-container .projetos li {
+  margin-top: 1rem; }
+
+#projetos-container .projetos li {
+  position: relative; }
+
+#projetos-container .projetos .name, #projetos-container .projetos .label {
+  display: inline-block;
+  width: 100%;
+  position: absolute; }
+  #projetos-container .projetos .name span, #projetos-container .projetos .label span {
     display: inline-block;
-    font-size: 1.6rem;
-    overflow: hidden;
-    width: 100%;
-    min-height: 35rem;
-    height: 35rem;
-    height: 35rem;
-    max-height: 35rem; }
-  #projetos-container .projetos .content {
-    width: 100%;
-    min-height: 35rem;
-    height: 35rem;
-    height: 35rem;
-    max-height: 35rem;
-    display: inline-block;
-    border: none;
-    background-color: inherit;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat; }
-  #projetos-container .projetos ul, #projetos-container .projetos li {
-    margin-top: 1rem; }
-  #projetos-container .projetos li {
-    position: relative; }
-  #projetos-container .projetos .name, #projetos-container .projetos .label {
-    display: inline-block;
-    width: 100%;
-    position: absolute; }
-    #projetos-container .projetos .name span, #projetos-container .projetos .label span {
-      display: inline-block;
-      color: white;
-      padding: 1rem; }
-  #projetos-container .projetos .name {
-    top: 1rem;
-    left: 2rem;
-    font-size: 2.5rem; }
-    #projetos-container .projetos .name span {
-      -moz-transform: skewY(-5deg);
-      -ms-transform: skewY(-5deg);
-      -o-transform: skewY(-5deg);
-      -webkit-transform: skewY(-5deg);
-      transform: skewY(-5deg);
-      -moz-transform-origin: right;
-      -ms-transform-origin: right;
-      -o-transform-origin: right;
-      -webkit-transform-origin: right;
-      transform-origin: right; }
-  #projetos-container .projetos .label {
-    bottom: 1rem;
-    right: 2rem;
-    text-align: right; }
-    #projetos-container .projetos .label span {
-      -moz-transform: skewY(-5deg);
-      -ms-transform: skewY(-5deg);
-      -o-transform: skewY(-5deg);
-      -webkit-transform: skewY(-5deg);
-      transform: skewY(-5deg);
-      -moz-transform-origin: left;
-      -ms-transform-origin: left;
-      -o-transform-origin: left;
-      -webkit-transform-origin: left;
-      transform-origin: left; }
+    color: white;
+    padding: 1rem; }
+
+#projetos-container .projetos .name {
+  top: 1rem;
+  left: 2rem;
+  font-size: 2.5rem; }
+
+#projetos-container .projetos .label {
+  bottom: 1rem;
+  right: 2rem;
+  text-align: right; }
 
 @media all and (min-width: 25rem) {
   #projetos-container .categorias img {
@@ -863,7 +847,12 @@ footer {
     height: 30rem;
     height: 35vh;
     min-height: 30rem;
-    max-height: 45rem; }
+    max-height: 45rem;
+    /*  Para duas colunas, desloca toda a primeira para baixo
+        adicionando um padding ao topo dos objetos.
+    */ }
+    #projetos-container .categorias li:nth-child(odd) {
+      padding-top: 4.375%; }
   #projetos-container .categorias .content {
     height: 30rem;
     height: 35vh;
